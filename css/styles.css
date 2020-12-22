@@ -1067,31 +1067,35 @@ header {
   overflow: hidden;
 }
 
-.checkmark.icon {
-  display: inline-block;
-  top: 16%;
-  width: 16px;
-  height: 16px;
+.terms {
+  position: relative;
+  margin-left: 20px;
+}
 
+.terms::after {
+  content: ' ';
+  display: inline-block;
+  width: 16px;
+  height: 15px;
   border: 2px solid #212121;
   border-radius: 4px;
-  background-color: #fff;
-  fill: #fff;
+  background-color: white;
 
-  transition-property: border-color, background-color;
+  position: absolute;
+  top: 4px;
+  left: -20px;
+
+  transition-property: border-color, background-color, background-image;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.form-checkbox:checked + .checkmark.icon {
-  border-color: transparent;
+.form-checkbox:checked + .terms::after {
+  border-color: var(--accent-color);
   background-color: var(--accent-color);
+  background-image: url(../images/checkmark.svg);
+  background-repeat: no-repeat;
   background-size: contain;
-  background-origin: border-box;
-}
-
-.terms {
-  margin-left: 20px;
 }
 
 .form .button {
